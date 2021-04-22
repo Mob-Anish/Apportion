@@ -166,6 +166,7 @@ main {
 }
 
 .container__sharing {
+  display: none;
   background: white;
   width: 50rem;
   height: 36rem;
