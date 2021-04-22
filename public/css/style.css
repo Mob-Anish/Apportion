@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  font-family: 'Architects Daughter', cursive;
+  background: #26de81;
+}
+
+body {
+  height: 100vh;
+}
+
+header {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #f1eded;
+}
+
+main {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 10rem;
+  justify-content: center;
+  column-gap: 5rem;
+}
+
+.container,
+.drop-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container {
+  flex-direction: column;
+}
+
+.upload__container {
+  background: #ffffff;
+  border-radius: 2.5rem;
+  box-shadow: 0 0.5rem 2.5rem 0 #796e6e;
+}
+
+.drop-field {
+  width: 50rem;
+  min-height: 30rem;
+  border: 3px dashed #80ffbf;
+  border-radius: 2rem;
+  margin: 30px;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.icon__container {
+  width: 11rem;
+  height: 12rem;
+  position: relative;
+}
+
+.icon__container img {
+  width: 11rem;
+  position: absolute;
+  transform-origin: bottom;
+  transition: transform 250ms ease-in-out;
+}
+
+.icon__container .center--icon {
+  z-index: 5;
+}
+
+.text__container {
+  font-size: 2.3rem;
+  margin-top: 2rem;
+}
+
+.gif--icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.icon__container .right--icon,
+.icon__container .left--icon {
+  filter: grayscale(0.5);
+}
+
+.dragger .icon__container .right--icon {
+  transform: rotate(10deg) translateX(30px) scale(0.9);
+}
+
+.dragger .icon__container .left--icon {
+  transform: rotate(-10deg) translateX(-30px) scale(0.9);
+}
+
+.dragger .icon__container .center--icon {
+  transform: translateY(-0.3rem);
+}
+
+.dragger.drop-field {
+  border-color: #00c362;
+}
+
+.browse__file {
+  display: none;
+}
+
+.browse--btn {
+  color: #04dd70;
+  cursor: pointer;
+}
+
+.progress__container {
+  display: none;
+  height: 11rem;
+  width: 56rem;
+  background: #ffffff;
+  margin-top: 4rem;
+  border-radius: 2rem;
+  box-shadow: 0 0.5rem 2.5rem 0 #796e6e;
+  transition: visibility 0.2s linear;
+}
+
+.progress__container--progress--link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  flex-wrap: wrap;
+}
+
+.progress__container--inner {
+  position: relative;
+  width: 50rem;
+  height: 7rem;
+  border: 2px solid #04dd70;
+  border-radius: 1rem;
+}
+
+.bg--progress {
+  border-radius: 0.82rem;
+  background: #48d68f;
+  width: 0%;
+  height: 100%;
+  transform-origin: left;
+  transition: width 0.25s linear;
+  position: absolute;
+}
+
+.inner__container {
+  font-size: 2.3rem;
+  position: absolute;
+  z-index: 5;
+  margin-left: 10px;
+}
+
+.progress--percent {
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+.container__sharing {
+  background: white;
+  width: 50rem;
+  height: 36rem;
+  border-radius: 2rem;
+}
+
+.sharing__container {
+  margin: 3rem;
+}
+
+.sharing__container .input__container {
+  position: relative;
+}
+
+.sharing__container .input__container input {
+  font-family: 'Architects Daughter', cursive;
+  width: 100%;
+  border: 3px dashed #04dd70;
+  border-radius: 2rem;
+  height: 5rem;
+  padding: 1rem 1.5rem;
+  font-size: 2rem;
+  background: #8effc7;
+  color: #0000008c;
+}
+
+.sharing__container .input__container input:focus {
+  outline: none;
+}
+
+.sharing__container .input__container img {
+  top: 10px;
+  right: 6px;
+  position: absolute;
+  height: 3rem;
+  width: 3.5rem;
+  background: #8effc7;
+  cursor: pointer;
+}
+
+.email__container {
+  border: 2px solid #04dd70;
+  border-radius: 2rem;
+  margin: 3rem;
+  height: 22.2rem;
+  padding: 1.8rem;
+}
+
+p{
+  color: #00d66b;
+  text-align: center;
+  font-size: 2.1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 5rem;
+}
+
+.sender--input {
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.sender__email {
+  width: 70%;
+  text-align: right;
+  padding: 0 1rem;
+  border: none;
+  border-bottom: 2px dashed #80ffbf;
+}
+
+.receiver--input {
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.receiver__email {
+  width: 70%;
+  text-align: right;
+  padding: 0 1rem;
+  border: none;
+  border-bottom: 2px dashed #80ffbf;
+}
+
+.sender__email,.receiver__email:focus{
+  outline: none;
+}
+
+.submit--btn {
+  margin-top: 2.5rem !important;
+  width: 25%;
+  border: 2px solid #80ffbf;
+  background: #ffff;
+  padding: .4rem;
+  border-radius: 2rem;
+  margin: auto;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.submit--btn:focus {
+  outline: none;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Apportion | file dispense </title>
+  </head>
+  <body>
+    <header>
+      <!-- Logo -->
+      Apportion
+    </header>
+
+    <!---- Main content ---->
+    <main>
+      <section class="container grid--item">
+        <div class="upload__container">
+            <div class="drop-field">
+                <div class="icon__container">
+                    <img src="./img/file.svg" alt="file_icon" class="center--icon" draggable="false">
+                    <img src="./img/file.svg" alt="file_icon" class="left--icon" draggable="false">
+                    <img src="./img/file.svg" alt="file_icon" class="right--icon" draggable="false">
+                </div>
+                <input type="file" class="browse__file">
+                <div class="text__container">
+                  <span>Plop your files</span>
+                  <img src="./img/animate.gif" alt="file_icon" class="gif--icon" draggable="false">
+                  <span>or</span>
+                  <span class="browse--btn">browse</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress__container">
+          <div class="progress__container--progress--link">
+            <div class="progress__container--inner">
+              <div class="bg--progress"></div>
+              <div class="inner__container">
+                <div class="progress--status">Shaping your link .....</div>
+                <div class="progress--percent">
+                  <span class="percent">0</span>%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="container__sharing grid--item">
+        <div class="sharing__container">
+          <div class="input__container">
+            <input type="text" id="fileURL" readonly>
+            <img src="./img/file_copy-black-18dp.svg" class="copy--icon" alt="file__copy" draggable="false"> 
+          </div>
+        </div>
+        <div class="email__container">
+          <p>Send Via Email</p>
+          <form class="input-form">
+            <div class="sender--input">
+              <label for="">From</label>
+              <input type="text" name="mailFrom" class="sender__email" required>
+            </div>
+            <div class="receiver--input">
+              <label for="">To</label>
+              <input type="text" name="mailTo" class="receiver__email" required>
+            </div>
+            <button type="submit" class="submit--btn">Send</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

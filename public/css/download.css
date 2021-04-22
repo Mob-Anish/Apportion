@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+  font-family: 'Architects Daughter', cursive;
+  background: #26de81;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download {
+  background: #ffffff;
+  width: 43rem;
+  border-radius: 2.5rem;
+  box-shadow: 0 2rem 2rem 0 #00000017;
+  padding: 3rem;
+  text-align: center;
+}
+
+.download-btn a {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.8rem;
+  padding: 8px 4rem;
+  margin-top: 15px;
+  background: #00c362;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+}
