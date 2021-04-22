@@ -2,7 +2,7 @@
 
 - Simple file sharing app using Rest api .
 
-![Apportion](https://user-images.githubusercontent.com/75711381/115650045-3a899500-a348-11eb-8325-6ef8ba792ee7.PNG)
+![Main](https://user-images.githubusercontent.com/75711381/115651370-c0a6db00-a34a-11eb-9bfa-e9456f48570c.PNG)
 
 # Steps for sharing file 🗒️
 
