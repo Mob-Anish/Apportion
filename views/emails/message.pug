@@ -1,0 +1,16 @@
+extends baseEmail
+
+block content
+    p Hi,
+    p I have shared a file with you 🎉
+    p You can click the button below to process the download.
+    table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+        tbody
+            tr
+                td(align='left')
+                    table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+                        tbody
+                            tr
+                                td
+                                    a(href=`${url}`) Download 
+                                    p= (`${size}`)

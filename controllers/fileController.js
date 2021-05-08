@@ -1,8 +1,7 @@
 const multer = require('multer'); // middleware for handling multipart/form-data
 const File = require('../models/fileModel');
 const {v4: uuid4} = require('uuid');
-const sendEmail = require('../utils/email');
-const emailBody = require('../utils/emailBody');
+const Email = require('../utils/email');
 
 // Storage and naming for file into disk(uploads dir)
 let storage = multer.diskStorage({
@@ -82,18 +81,10 @@ exports.sendMail = async (req, res, next) => {
 
   // Send email
   try {
-    // sendEmail is an async function
-    await sendEmail({
-      mailFrom,
-      mailTo,
-      subject: 'Apportion',
-      message: `${mailFrom} shared a file with you.`,
-      html: emailBody({
-        mailFrom,
-        downloadLink: `${process.env.APP_URL}/files/download/${file.uuid}`,
-        size: parseInt(file.size / 1000) + 'kb',
-      }),
-    });
+    const url = `${process.env.APP_URL}/files/download/${file.uuid}`;
+    const size = parseInt(file.size / 1000) + 'kb';
+
+    await new Email(mailFrom, mailTo, url, size).sendMessage();
 
     res.status(200).json({
       status: 'success',

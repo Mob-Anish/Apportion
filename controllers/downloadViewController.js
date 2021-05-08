@@ -14,6 +14,7 @@ exports.downloadView = async (req, res, next) => {
 
     // Returning file
     res.status(200).render('download', {
+      title: 'Download your file',
       uuid: file.uuid,
       fileName: file.fileName,
       fileSize: file.size,

@@ -1,29 +1,53 @@
-//const sgMail = require('@sendgrid/mail'); // sendgrid npm package
 const nodemailer = require('nodemailer');
+const pug = require('pug');
+const { htmlToText } = require('html-to-text'); 
 
-const sendEmail = async (options) => {
-  //sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  // 1) Create a transporter
-  const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: process.env.EMAIL_PORT,
-    auth: {
-      user: process.env.EMAIL_USERNAME,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  });
+module.exports = class Email {
+  constructor(mailFrom, mailTo, downloadLink, size) {
+    this.mailFrom = mailFrom;
+    this.mailTo = mailTo;
+    this.downloadLink = downloadLink;
+    this.size = size;
+  }
 
-  // 2) Define the email options
-  const emailOptions = {
-    from: `Apportion <${options.mailFrom}>`,
-    to: options.mailTo,
-    subject: options.subject,
-    text: options.message,
-    html: options.html,
-  };
+  // 1) Create a transporter(medium)
+  transporter() {
+    return nodemailer.createTransport({
+      host: process.env.EMAIL_HOST,
+      port: process.env.EMAIL_PORT,
+      auth: {
+        user: process.env.EMAIL_USERNAME,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
+  }
 
-  // 3) Actually send the email
-  await transporter.sendMail(emailOptions);
+  async send(template, subject) {
+    // 1) Render HTML based on a pug template.
+    const html = pug.renderFile(
+      `${__dirname}/../views/emails/${template}.pug`,
+      {
+        url: this.downloadLink,
+        size: this.size,
+      }
+    );
+
+    // 2) Define the email options
+    const mailOptions = {
+      from: `Apportion <${this.mailFrom}>`,
+      to: this.mailTo,
+      subject,
+      html,
+      text: htmlToText(html, {
+        wordwrap: 130,
+      }),
+    };
+
+    // 3) Create a tansport and send a email
+    await this.transporter().sendMail(mailOptions);
+  }
+
+  async sendMessage() {
+    await this.send('message', 'The file has been shared to you!');
+  }
 };
-
-module.exports = sendEmail;
